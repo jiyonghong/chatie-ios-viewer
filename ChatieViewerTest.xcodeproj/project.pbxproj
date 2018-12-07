@@ -7,15 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CF57D7DA12C541B813A2808 /* Pods_ChatieViewerTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EBE2B5BFEE9ABDDA9463DC6 /* Pods_ChatieViewerTest.framework */; };
+		B1686EC921BA0AAC00066911 /* ReadHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1686EC621BA0AAC00066911 /* ReadHistory.swift */; };
+		B1686ECA21BA0AAC00066911 /* LastEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1686EC721BA0AAC00066911 /* LastEpisode.swift */; };
+		B1686ECB21BA0AAC00066911 /* EpisodePaidHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1686EC821BA0AAC00066911 /* EpisodePaidHistory.swift */; };
+		B1686ECD21BA124D00066911 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1686ECC21BA124D00066911 /* Episode.swift */; };
+		B1686ECF21BA530100066911 /* EpisodeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1686ECE21BA530100066911 /* EpisodeDetail.swift */; };
+		B1686ED221BA97F400066911 /* UserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1686ED121BA97F400066911 /* UserStatus.swift */; };
 		B1AFB5AE21B6866100554B22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFB5AD21B6866100554B22 /* AppDelegate.swift */; };
 		B1AFB5B021B6866100554B22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFB5AF21B6866100554B22 /* ViewController.swift */; };
 		B1AFB5B321B6866100554B22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AFB5B121B6866100554B22 /* Main.storyboard */; };
 		B1AFB5B621B6866100554B22 /* ChatieViewerTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1AFB5B421B6866100554B22 /* ChatieViewerTest.xcdatamodeld */; };
 		B1AFB5B821B6866200554B22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1AFB5B721B6866200554B22 /* Assets.xcassets */; };
 		B1AFB5BB21B6866200554B22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1AFB5B921B6866200554B22 /* LaunchScreen.storyboard */; };
+		B1AFB5D721B6B9D100554B22 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = B1AFB5D321B6B9D000554B22 /* main.js */; };
+		B1AFB5D821B6B9D100554B22 /* Enabler.js in Resources */ = {isa = PBXBuildFile; fileRef = B1AFB5D421B6B9D000554B22 /* Enabler.js */; };
+		B1AFB5D921B6B9D100554B22 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = B1AFB5D521B6B9D100554B22 /* assets */; };
+		B1AFB5DA21B6B9D100554B22 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = B1AFB5D621B6B9D100554B22 /* index.html */; };
+		B1AFB5E021B7CCE700554B22 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AFB5DF21B7CCE700554B22 /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4FAEFF3DD3373374001CBF80 /* Pods-ChatieViewerTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatieViewerTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatieViewerTest/Pods-ChatieViewerTest.debug.xcconfig"; sourceTree = "<group>"; };
+		7EBE2B5BFEE9ABDDA9463DC6 /* Pods_ChatieViewerTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatieViewerTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE4F303A13736D0AA995C884 /* Pods-ChatieViewerTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatieViewerTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatieViewerTest/Pods-ChatieViewerTest.release.xcconfig"; sourceTree = "<group>"; };
+		B1686EC621BA0AAC00066911 /* ReadHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadHistory.swift; sourceTree = "<group>"; };
+		B1686EC721BA0AAC00066911 /* LastEpisode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastEpisode.swift; sourceTree = "<group>"; };
+		B1686EC821BA0AAC00066911 /* EpisodePaidHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodePaidHistory.swift; sourceTree = "<group>"; };
+		B1686ECC21BA124D00066911 /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		B1686ECE21BA530100066911 /* EpisodeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetail.swift; sourceTree = "<group>"; };
+		B1686ED121BA97F400066911 /* UserStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatus.swift; sourceTree = "<group>"; };
 		B1AFB5AA21B6866100554B22 /* ChatieViewerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatieViewerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1AFB5AD21B6866100554B22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1AFB5AF21B6866100554B22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +45,11 @@
 		B1AFB5B721B6866200554B22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1AFB5BA21B6866200554B22 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1AFB5BC21B6866200554B22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1AFB5D321B6B9D000554B22 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		B1AFB5D421B6B9D000554B22 /* Enabler.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Enabler.js; sourceTree = "<group>"; };
+		B1AFB5D521B6B9D100554B22 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		B1AFB5D621B6B9D100554B22 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		B1AFB5DF21B7CCE700554B22 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CF57D7DA12C541B813A2808 /* Pods_ChatieViewerTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01C1AA4EF2B6375C40B33A9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7EBE2B5BFEE9ABDDA9463DC6 /* Pods_ChatieViewerTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1686EC521BA0A7800066911 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1686EC821BA0AAC00066911 /* EpisodePaidHistory.swift */,
+				B1686EC721BA0AAC00066911 /* LastEpisode.swift */,
+				B1686EC621BA0AAC00066911 /* ReadHistory.swift */,
+				B1686ECC21BA124D00066911 /* Episode.swift */,
+				B1686ECE21BA530100066911 /* EpisodeDetail.swift */,
+				B1686ED121BA97F400066911 /* UserStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B1AFB5A121B6866100554B22 = {
 			isa = PBXGroup;
 			children = (
 				B1AFB5AC21B6866100554B22 /* ChatieViewerTest */,
 				B1AFB5AB21B6866100554B22 /* Products */,
+				DAF55E77DB5E6DC8DC757585 /* Pods */,
+				01C1AA4EF2B6375C40B33A9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +106,8 @@
 		B1AFB5AC21B6866100554B22 /* ChatieViewerTest */ = {
 			isa = PBXGroup;
 			children = (
+				B1686EC521BA0A7800066911 /* Models */,
+				B1AFB5CA21B6A52D00554B22 /* web */,
 				B1AFB5AD21B6866100554B22 /* AppDelegate.swift */,
 				B1AFB5AF21B6866100554B22 /* ViewController.swift */,
 				B1AFB5B121B6866100554B22 /* Main.storyboard */,
@@ -63,8 +115,29 @@
 				B1AFB5B921B6866200554B22 /* LaunchScreen.storyboard */,
 				B1AFB5BC21B6866200554B22 /* Info.plist */,
 				B1AFB5B421B6866100554B22 /* ChatieViewerTest.xcdatamodeld */,
+				B1AFB5DF21B7CCE700554B22 /* VideoViewController.swift */,
 			);
 			path = ChatieViewerTest;
+			sourceTree = "<group>";
+		};
+		B1AFB5CA21B6A52D00554B22 /* web */ = {
+			isa = PBXGroup;
+			children = (
+				B1AFB5D521B6B9D100554B22 /* assets */,
+				B1AFB5D421B6B9D000554B22 /* Enabler.js */,
+				B1AFB5D621B6B9D100554B22 /* index.html */,
+				B1AFB5D321B6B9D000554B22 /* main.js */,
+			);
+			path = web;
+			sourceTree = "<group>";
+		};
+		DAF55E77DB5E6DC8DC757585 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FAEFF3DD3373374001CBF80 /* Pods-ChatieViewerTest.debug.xcconfig */,
+				AE4F303A13736D0AA995C884 /* Pods-ChatieViewerTest.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1AFB5BF21B6866200554B22 /* Build configuration list for PBXNativeTarget "ChatieViewerTest" */;
 			buildPhases = (
+				33CF0DB2C5F35A401F54BEF6 /* [CP] Check Pods Manifest.lock */,
 				B1AFB5A621B6866100554B22 /* Sources */,
 				B1AFB5A721B6866100554B22 /* Frameworks */,
 				B1AFB5A821B6866100554B22 /* Resources */,
+				02B5FE6467C0E800E1C4FF25 /* [CP] Embed Pods Frameworks */,
+				FF00C464DF199A4CBF686404 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,13 +201,89 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AFB5DA21B6B9D100554B22 /* index.html in Resources */,
+				B1AFB5D821B6B9D100554B22 /* Enabler.js in Resources */,
 				B1AFB5BB21B6866200554B22 /* LaunchScreen.storyboard in Resources */,
 				B1AFB5B821B6866200554B22 /* Assets.xcassets in Resources */,
+				B1AFB5D921B6B9D100554B22 /* assets in Resources */,
 				B1AFB5B321B6866100554B22 /* Main.storyboard in Resources */,
+				B1AFB5D721B6B9D100554B22 /* main.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02B5FE6467C0E800E1C4FF25 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ChatieViewerTest/Pods-ChatieViewerTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatieViewerTest/Pods-ChatieViewerTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33CF0DB2C5F35A401F54BEF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChatieViewerTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF00C464DF199A4CBF686404 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatieViewerTest/Pods-ChatieViewerTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1AFB5A621B6866100554B22 /* Sources */ = {
@@ -139,7 +291,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1AFB5B021B6866100554B22 /* ViewController.swift in Sources */,
+				B1686ECD21BA124D00066911 /* Episode.swift in Sources */,
 				B1AFB5AE21B6866100554B22 /* AppDelegate.swift in Sources */,
+				B1AFB5E021B7CCE700554B22 /* VideoViewController.swift in Sources */,
+				B1686ECA21BA0AAC00066911 /* LastEpisode.swift in Sources */,
+				B1686ECB21BA0AAC00066911 /* EpisodePaidHistory.swift in Sources */,
+				B1686ED221BA97F400066911 /* UserStatus.swift in Sources */,
+				B1686ECF21BA530100066911 /* EpisodeDetail.swift in Sources */,
+				B1686EC921BA0AAC00066911 /* ReadHistory.swift in Sources */,
 				B1AFB5B621B6866100554B22 /* ChatieViewerTest.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +443,7 @@
 		};
 		B1AFB5C021B6866200554B22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FAEFF3DD3373374001CBF80 /* Pods-ChatieViewerTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +462,7 @@
 		};
 		B1AFB5C121B6866200554B22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE4F303A13736D0AA995C884 /* Pods-ChatieViewerTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
