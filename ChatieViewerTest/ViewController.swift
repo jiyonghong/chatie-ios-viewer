@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 import Lightbox
 import SwiftyJSON
+import RealmSwift
 
 
 class ViewController: UIViewController {
@@ -17,12 +18,14 @@ class ViewController: UIViewController {
     
     var userStatus: UserStatus!
     var lastRead: [Int]!
+    var lastPaidRead: [Int]!
     var episodeDetail: EpisodeDetail?
     
     var tapCount: Int = 0
     var remainTap: Int!
     
     var isFinished: Bool = false
+
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -33,19 +36,28 @@ class ViewController: UIViewController {
 
         self.userStatus = UserStatus(data: JSON([
             "isSubscribed": false,
-            "lastSceneIndex": 1,
-            "lastChatIndex": 3,
-            "remainTap": 4,
+            "remainTap": 50,
             ]))
         
-        self.lastRead = [
-            self.userStatus.lastSceneIndex,
-            self.userStatus.lastChatIndex
-        ]
         
         self.remainTap = self.userStatus.remainTap
         
         self.getEpisodeDetail() {
+            let readHistoryObject = ReadHistory.currentEpisode(storyId: self.episodeDetail!.storyId)
+            let paidHistoryObject = try! Realm().objects(EpisodePaidHistory.self)
+                .filter { $0.episodeID == self.episodeDetail!.id }
+                .first
+            
+            self.lastRead = [
+                readHistoryObject?.sceneIndex ?? 0,
+                readHistoryObject?.chatIndex ?? 0,
+            ]
+            
+            self.lastPaidRead = [
+                paidHistoryObject?.sceneIndex ?? 0,
+                paidHistoryObject?.chatIndex ?? 0,
+            ]
+            
             self.loadWebView()
         }
         
@@ -58,10 +70,17 @@ class ViewController: UIViewController {
         self.episodeDetail = EpisodeDetail(json: JSON([
             "id": 1,
             "title": "Test Episode 1",
-            "storyTitle": "Test Story 1",
+            "story": [
+                "id": 1,
+                "title": "Test Story1"
+                ],
             "episodeCount": 9,
-            "order": 2,
-            "url": "https://efinder-staging.s3.amazonaws.com/chatie/chatie_episode_files/5c45abd8-b082-40f9-be14-b7d8a2c1f21d.chatie?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJTZDGVES7DK5SW2Q%2F20181207%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181207T071354Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=18608f4c3b88d9706786948cb8febe1cc274bc67720690256a83c8d8c90f3e4f"
+            "position": 2,
+            "content": [
+                "attachment": [
+                    "url": "https://efinder-staging.s3.amazonaws.com/chatie/chatie_episode_files/b5ff6728-6bab-4f44-8a46-398c26276f69.chatie?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJTZDGVES7DK5SW2Q%2F20181212%2Fap-northeast-2%2Fs3%2Faws4_request&X-Amz-Date=20181212T040509Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=2f994920ce24feaa6dd3722fec7ba6cf8a7121e71a67fc2686bd6c4c939241f5"
+                    ]
+                ]
             ]))
         
         completion()
@@ -105,24 +124,33 @@ class ViewController: UIViewController {
             if self.userStatus.isSubscribed {
                 self.lastRead = [sceneIndex, chatIndex]
                 self.tapCount += 1
+                
+                // TODO: to viewWillDisappear
+                self.saveProgress()
                 break
             }
             
-            print(sceneIndex, chatIndex, self.lastRead, self.remainTap)
+            let willSubtract = sceneIndex > self.lastPaidRead[0] || (sceneIndex == self.lastPaidRead[0] && chatIndex > self.lastPaidRead[1])
             
-            if self.remainTap - 1 < 0
-                && (sceneIndex == self.lastRead[0] && chatIndex == self.lastRead[1])
-            {
+            if willSubtract && self.remainTap - 1 < 0 {
                 // TODO: show subscription modal
                 print("show subscription modal")
                 break
             }
             
-            self.lastRead = [sceneIndex, chatIndex]
-            self.tapCount += 1
-            if !self.userStatus.isSubscribed {
+            if willSubtract {
+                self.lastPaidRead = [sceneIndex, chatIndex]
                 self.remainTap -= 1
             }
+            
+            self.lastRead = [sceneIndex, chatIndex]
+            self.tapCount += 1
+            
+            // TODO: to viewWillDisappear
+            self.saveProgress()
+            
+            self.webView.evaluateJavaScript("window.chatieInterface.reflect(\(String(describing: self.remainTap!)))", completionHandler: { result, error in
+            })
             
             break
         case "viewMedia":
@@ -150,17 +178,35 @@ class ViewController: UIViewController {
         }
     }
     
+    func saveProgress() {
+        guard let episode = self.episodeDetail,
+            let lastRead = self.lastRead,
+            let lastPaidRead = self.lastPaidRead else {
+            return
+        }
+        
+        ReadHistory.save(episode: episode, sceneIndex: lastRead[0], chatIndex: lastRead[1])
+        
+        print(try! Realm().objects(ReadHistory.self).first)
+        
+        if !self.userStatus.isSubscribed {
+            EpisodePaidHistory.save(episode: episode, sceneIndex: lastPaidRead[0], chatIndex: lastPaidRead[1])
+            
+            print(try! Realm().objects(EpisodePaidHistory.self).first)
+        }
+    }
+    
     func loadDataIntoViewer(episodeDetail: EpisodeDetail) {
         // TODO: simplify
         let data = [
             "id": episodeDetail.id,
             "title": episodeDetail.title,
             "storyTitle": episodeDetail.storyTitle,
-            "order": episodeDetail.order,
+            "position": episodeDetail.position,
             "url": episodeDetail.url,
             "isSubscribed": self.userStatus.isSubscribed,
-            "sceneIndex": self.userStatus.lastSceneIndex,
-            "chatIndex": self.userStatus.lastChatIndex,
+            "sceneIndex": self.lastRead[0],
+            "chatIndex": self.lastRead[1],
             "remainTap": self.userStatus.remainTap
             ] as [String : Any]
         guard let json = try? JSONSerialization.data(withJSONObject: data, options: .prettyPrinted) else {
@@ -172,7 +218,6 @@ class ViewController: UIViewController {
         self.webView.evaluateJavaScript("window.chatieInterface.load(\(jsonString))", completionHandler: { result, error in
         })
     }
-    
     
     func showImageFullscreen(imageURL url: URL) {
         let images: [LightboxImage] = [LightboxImage(imageURL: url)]
@@ -190,6 +235,8 @@ class ViewController: UIViewController {
         self.present(playerController, animated: true, completion: nil)
     }
 }
+
+
 
 
 extension ViewController: WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler {
@@ -217,4 +264,3 @@ extension ViewController: LightboxControllerDismissalDelegate {
         
     }
 }
-

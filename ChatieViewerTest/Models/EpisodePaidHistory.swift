@@ -15,26 +15,26 @@ class EpisodePaidHistory: Object {
   @objc dynamic var sceneIndex: Int = 0
   @objc dynamic var chatIndex: Int = 0
 
-  convenience init(episodeID: Int, sceneIndex: Int, chatIndex: Int) {
+  convenience init(episode: EpisodeDetail, sceneIndex: Int, chatIndex: Int) {
     self.init()
-    self.episodeID = episodeID
+    self.episodeID = episode.id
     self.sceneIndex = sceneIndex
     self.chatIndex = chatIndex
   }
 
-  class func save(episodeID: Int,
+  class func save(episode: EpisodeDetail,
                   sceneIndex: Int,
                   chatIndex: Int) {
     let realm = try! Realm()
 
     let filteredPaidHistory = realm.objects(EpisodePaidHistory.self)
-      .filter { $0.episodeID == episodeID }
+      .filter { $0.episodeID == episode.id }
       .first
 
     guard let paidHistory = filteredPaidHistory else {
       try! realm.write {
         let paidHistory = EpisodePaidHistory(
-          episodeID: episodeID,
+          episode: episode,
           sceneIndex: sceneIndex,
           chatIndex: chatIndex)
         realm.add(paidHistory)

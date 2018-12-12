@@ -19,12 +19,11 @@ class ReadHistory: Object {
   @objc dynamic var lastEpisodeSceneIndex: Int = 0
   var episodeIds = List<Int>()
 
-  convenience init(storyID: Int,
-                   episode: Episode,
+  convenience init(episode: EpisodeDetail,
                    sceneIndex: Int,
                    chatIndex: Int) {
     self.init()
-    self.storyID = storyID
+    self.storyID = episode.storyId
     self.lastEpisodeID = episode.id
     self.lastEpisodeTitle = episode.title
     self.lastEpisodeChatIndex = chatIndex
@@ -32,18 +31,16 @@ class ReadHistory: Object {
     self.episodeIds.append(episode.id)
   }
 
-  class func save(storyID: Int,
-                  episode: Episode,
+  class func save(episode: EpisodeDetail,
                   sceneIndex: Int,
                   chatIndex: Int) {
     let realm = try! Realm()
     let historyObject = realm.objects(ReadHistory.self)
-      .filter { $0.storyID == storyID }
+      .filter { $0.storyID == episode.storyId }
 
     if historyObject.isEmpty {
       try! realm.write {
         let readHistory = ReadHistory(
-          storyID: storyID,
           episode: episode,
           sceneIndex: sceneIndex,
           chatIndex: chatIndex
